@@ -102,9 +102,16 @@ function authUser(id){
         try {
             const userData = await Usuario.findOne({_id:id,active:true})
             if(userData === null){
-                reject(false)
+                reject({auth:false})
             }else{
-                resolve(true)
+                const renderData = {
+                    username:userData.username,
+                    email:userData.email,
+                    img:userData.img,
+                    rol:userData.rol,
+                    phone:userData.phone,
+                }
+                resolve({auth:true,renderData})
             }
         } catch (e) {
             reject(e)
@@ -114,4 +121,5 @@ function authUser(id){
 module.exports = {
     saveUser,
     loginUser,
+    authUser,
 }
