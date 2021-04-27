@@ -2,7 +2,7 @@ const { authUser } = require('./../../models/User')
 function auth(req, res, next) {
     return new Promise(async (resolve, reject) => {
         try {
-            const id = req.session.id
+            const id = req.session.token
             const verify = id ? true : false
             if(verify) {
                 const auth = await authUser(id)
@@ -18,10 +18,20 @@ function auth(req, res, next) {
                     }
                 }
             }else{
-                res.send('notUser')
+                let contentType = req.get('content-type') ? req.get('content-type').substring(0,req.get('content-type').indexOf(';')) : 'html'
+                if(contentType === 'html'){
+                    res.redirect('/')
+                }else{
+                    res.send('notUser')
+                }
             }
         } catch (e) {
-            res.send('notUser')
+            let contentType = req.get('content-type') ? req.get('content-type').substring(0,req.get('content-type').indexOf(';')) : 'html'
+            if(contentType === 'html'){
+                res.redirect('/')
+            }else{
+                res.send('notUser')
+            }
         }
     })
 }

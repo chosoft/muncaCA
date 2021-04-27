@@ -12,11 +12,11 @@ router.get('/',async (req,res) => {
     }
 })
 
-router.post('/:mode', async (req,res) => {
+router.post('/', async (req,res) => {
     try {
-        const mode = (req.params.mode === 'login' || req.params.mode === 'register') ? true : false
+        const mode = (req.query.mode === 'login' || req.query.mode === 'register') ? true : false
         if(mode){
-            if(req.params.mode === 'login'){
+            if(req.query.mode === 'login'){
                 const controllerLoginResponse = await controllerLogin(req.body)
                 req.session.token = controllerLoginResponse
                 res.send('ok')
