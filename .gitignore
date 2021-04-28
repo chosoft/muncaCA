@@ -2,3 +2,4 @@ node_modules
 .env
 public/scss
 public/img
+public/docs
