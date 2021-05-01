@@ -7,7 +7,7 @@ const userSchema = new Schema({
     email:{required:true,type:String},
     password:{required:true,type:String},
     rol:{required:true,type:String,default:'user'},
-    img:{required:true,type:String,default:'/profile/default.svg'},
+    img:{required:true,type:String,default:'/img/profile/default.svg'},
     phone:{required:true,type:Number},
     active:{required:true,type:Boolean,default:false}
 })
@@ -112,6 +112,20 @@ function authUser(id){
                     phone:userData.phone,
                 }
                 resolve({auth:true,renderData})
+            }
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+function updateImg({img,id}){
+    return new Promise(async (resolve, reject) => {
+        try {
+            const userData = await Usuario.findById(id)
+            if(userData.img === '/img/profile/default.svg'){
+                const updateResult = await Usuario.findOneAndUpdate({_id:id,img:img})
+            }else{
+
             }
         } catch (e) {
             reject(e)

@@ -2,17 +2,11 @@ const multer = require('multer')
 const path = require('path')
 const uniqid = require('uniqid')
 
-let filesTypes = ['zip','ogg','pdf','rtf','rar','txt','mp3',
-                    'avi','wm','wmv','mpg','mpeg','wav','midi',
-                    'mp4','pptx','pptm','potm','ppam','ppsx',
-                    'sldm','thmx','sldx','ppsm','potx','xlsx',
-                    'xlsm','xltx','xltm','xlsb','xlam','doc',
-                    'docx','docm','dotx','dotm','jpg','png',
-                    'gif','tiff','svg','bmp','eps','jpeg','jfif']
+let filesTypes = ['jpg','png','tiff','svg','bmp','eps','jpeg','jfif']
 
 const storage = multer.diskStorage({
     destination: (req,file,cb) => {
-        cb(null, path.join(__dirname, '../public/docs'))
+        cb(null, path.join(__dirname, '../public/img/profile'))
     },
     filename: (req,file,cb) => {
         const extension = file.originalname.substring(file.originalname.lastIndexOf('.'))
