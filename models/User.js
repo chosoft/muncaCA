@@ -122,10 +122,48 @@ function updateImg({img,id}){
     return new Promise(async (resolve, reject) => {
         try {
             const userData = await Usuario.findById(id)
-            if(userData.img === '/img/profile/default.svg'){
-                const updateResult = await Usuario.findOneAndUpdate({_id:id,img:img})
+            const updateResult = await Usuario.findOneAndUpdate({_id:id},{img:`/img/profile/${img}`})
+            resolve(userData.img)
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+function updateUsername({username,id}){
+    return new Promise(async (resolve, reject) => {
+        try {
+            const updateResult = await Usuario.findOneAndUpdate({_id:id},{username})
+            resolve('ok')
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+function updatePassword({password,id}){
+    return new Promise(async (resolve, reject) => {
+        const saltRounds = randomNumber(10,25)
+        bcrypt.hash(password, saltRounds,async (err, hash) => {
+            try {
+                if(err){
+                    reject(err)
+                }else{
+                    const updateResult = await Usuario.findOneAndUpdate({_id:id},{password:hash})
+                    resolve('ok')
+                }
+            } catch (e) {
+                reject(e)
+            }
+        })
+    })
+}
+function getMail(id){
+    return new Promise(async (resolve, reject) => {
+        try {
+            const { username } = await Usuario.findById(id)
+            if(username === null){
+                reject('error')
             }else{
-
+                resolve(username)
             }
         } catch (e) {
             reject(e)
@@ -136,4 +174,8 @@ module.exports = {
     saveUser,
     loginUser,
     authUser,
+    updateImg,
+    updateUsername,
+    updatePassword,
+    getMail,
 }
