@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Añadir Modelos | Munca
+        link(rel="stylesheet", href="/css/bootstrap.min.css")        
+        link(rel="stylesheet", href="/css/modelos.css")
+    body 
+        include layout/navbar.pug
+
+        .container
+            .row
+                .col-12.titleAdd
+                    h1 Añadir Modelos
+                .col-12.titleInfos
+                    h3 Datos Basicos
+                .col-12.wp-formModelo
+                    label(for="colegio")  Colegio
+                    input#colegio(type="text", name="colegio" placeholder="Nombre del colegio")
+                    label(for="modelo") Nombre del modelo
+                    input#modelo(type="text", name="modelo" placeholder="Nombre del modelo")
+                    label(for="ubicacion") Direccion
+                    input#ubicacion(type="text", name="ubicacion" placeholder="Direccion")
+                    label(for="email") Correo
+                    input#email(type="text", name="email" placeholder="Direccion de correo")
+                .col-12.titleInfos
+                    h3 Datos de los lideres
+                .col-12.finalWp
+                    .wp-addButton
+                        button(id="addLider") 
+                            img(src="/img/mediaImg/mas.svg", alt="")
+                    .wp-cardContainer#appender
+
+                    .wp-sender
+                        button(id="submitModel") Añadir Modelo
+    
+        script(src="/js/bootstrap.min.js")
+        script(src="/js/axios.min.js")
+        script(src="/js/sweetalert.js")
+        script(src="/js/addModelos.js")

@@ -43,7 +43,18 @@ function deleteDoc(id){
         }
     })
 }
+function getDocuments(){
+    return new Promise(async (resolve, reject) => {
+        const documentos = await Documento.find({})
+        if(documentos.length <= 0 || documentos === null){
+            resolve({isNull:true,documentos:null})
+        }else{
+            resolve({isNull:false,documentos})
+        }
+    })
+}
 module.exports = {
     saveDocs,
     deleteDoc,
+    getDocuments,
 }

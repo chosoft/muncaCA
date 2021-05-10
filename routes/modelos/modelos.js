@@ -1,14 +1,16 @@
 const express = require('express');
-const { reset } = require('nodemon');
 const router = express.Router();
 const CreateModel = require('./../../controllers/Modelos/Create')
 const DeleteModel = require('./../../controllers/Modelos/Delete')
+const GetModel = require('./../../controllers/Modelos/Get')
+
 const auth = require('./../../utils/auth/auth')
 
 
 router.get('/',auth,async (req,res) => {
     try {
-        res.send('auth')
+        const modelos = await GetModel()
+        res.render('modelos',{...modelos,renderInfo:req.renderData})
     } catch (e) {
         res.send(e)
     }
@@ -16,9 +18,10 @@ router.get('/',auth,async (req,res) => {
 
 router.post('/',auth,async (req,res) => {
     try {
-        const modelData = {...req.body,creator:req.session.token}
-        const controllerResponse = await CreateModel(modelData)
-        res.send(controllerResponse)
+            const modelData = {...req.body,creator:req.session.token}
+            const controllerResponse = await CreateModel(modelData)
+            res.send(controllerResponse)
+        
     } catch (e) {
         res.send(e)
     }

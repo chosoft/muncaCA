@@ -1,0 +1,39 @@
+doctype html
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Documentos | Munca
+        link(rel="stylesheet", href="/css/bootstrap.min.css")        
+        link(rel="stylesheet", href="/css/documentos.css")
+    body
+        include layout/navbar.pug
+
+        .container
+            .row
+                if isNull
+                    .col-12.wp-tl
+                        h1 Documentos
+                    .col-12.actionGuide
+                        p Parece que todavia no tienes modelos Documentos agregados, agrega uno dando click al mas1
+                    .col-12.imgNull
+                        img(src="/img/mediaImg/empty.svg", alt="")
+                else
+                    .col-12.wp-tl
+                        h1 Modelos
+                    each modelo in modelos
+                        .col-4
+                            .cardModelo
+                                .wp-title
+                                    h3=modelo.modelo
+                                .wp-img
+                                    img(src=`${modelo.logo}`, alt="")
+                                .wp-buttons
+                                    a.visit(href=`/filter/${modelo.modelo}`) Ver
+                                    button.delete(key=modelo._id) Eliminar
+
+        script(src="/js/bootstrap.min.js")
+        script(src="/js/axios.min.js")
+        script(src="/js/sweetalert.js")
+        script(src="/js/modelos.js")

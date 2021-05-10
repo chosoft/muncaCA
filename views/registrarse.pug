@@ -12,25 +12,32 @@ html(lang="es")
             .row
                 .col-12
                     .container.title-wp
-                        h1#titleAction INICIO DE SESION
+                        h1#titleAction REGISTRARSE
                 .col-12 
                     .container.wp-form
                         .wp-logoAction 
                             img(src="/img/mediaImg/register.svg", alt="")
                         .wp-inputs 
+                            label(for="email") Usuario
+                            input(type="text" id="username" placeholder="Nombre de usuario")
                             label(for="email") Correo
                             input(type="email" id="email" placeholder="Ej: correo@colamer.edu.co")
                             label(for="password") Contraseña
                             input(type="password" id="password" placeholder="Contraseña")
-                            button(id="submit" action="login") Ingresar
-                            a(href="/registrarse") Registrarse 
+                            label(for="password") Contraseña(de nuevo)
+                            input(type="password" id="passwordConfirmation" placeholder="Contraseña(de nuevo)")
+                            label(for="password") Telefono
+                            input(type="text" id="phone" placeholder="316 1234567")
+                            button(id="submit" action="register") Registrarse
+                            a(href="/") Ingresar 
                         .wp-logo 
-                            img(src="/img/mediaImg/colamer.svg")    
+                            img(src="/img/mediaImg/colamer.svg") 
 
-
-                            
         script(src="/js/axios.min.js")
         script(src="/js/sweetalert.js")
         script(src="/js/loginAndRegister.js")
+
+
+                
 
 

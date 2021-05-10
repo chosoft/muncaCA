@@ -8,7 +8,7 @@ const modeloSchema = new Schema({
     email: {type: String,required: true},
     lideres: {type: Array,required: true},
     creator: {type: mongoose.ObjectId,required: true},
-    logo: {type: String,required: true, default:"/modelosImg/default.svg"}
+    logo: {type: String,required: true,default:'/img/modelosImg/default.svg'}
 })
 
 const Modelo = new model('Modelo', modeloSchema)
@@ -39,7 +39,34 @@ function deleteModelo(key){
         }
     })
 }
+function getModels(){
+    return new Promise(async (resolve, reject) => {
+        try {
+            const modelos = await Modelo.find({})
+            if(modelos === null || modelos.lenght <= 0){
+                resolve('nulos')
+            }else{
+                resolve(modelos)
+            }
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
+function getModelByName(modelo){
+    return new Promise(async (resolve, reject) => {
+        try {
+            const modeloInfo = await Modelo.findOne({modelo})
+            const isNull = modeloInfo ? false : true
+            resolve({isNull,modeloInfo})
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
 module.exports = {
     saveModelo,
     deleteModelo,
+    getModels,
+    getModelByName,
 }

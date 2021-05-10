@@ -5,12 +5,14 @@ const auth = require('./../../utils/auth/auth')
 const upload = require('./../../configs/docsUpload')
 const docsMiddleware = upload.array('docs',15)
 
+const Get = require('./../../controllers/Docs/Get')
 const createController = require('./../../controllers/Docs/Create')
 const deleteController = require('./../../controllers/Docs/Delete')
 
 router.get('/',auth, async(req,res) => {
     try {
-        
+        const getDocuments = await Get()
+        res.render('documentos',{...getDocuments,renderInfo: req.renderData})
     } catch (e) {
         res.send(e)
     }

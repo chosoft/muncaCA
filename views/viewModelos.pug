@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title= `${modeloInfo.modelo} | Munca`
+        link(rel="stylesheet", href="/css/bootstrap.min.css")        
+        link(rel="stylesheet", href="/css/modelos.css")
+    body 
+        include layout/navbar.pug
+
+        .container-fluid.centerTitle
+            h1= modeloInfo.modelo
+        .container
+            .row
+                .col-12.wp-logo
+                    img(src=modeloInfo.logo alt="")
+            .row
+                .col-12.title-centered
+                    h2 Datos
+                .col-6.wp-miniCard
+                    
+                        img(src="/img/mediaImg/school.svg", alt="")
+                        span=modeloInfo.colegio
+                .col-6.wp-miniCard
+                    
+                            img(src="/img/mediaImg/pin.svg", alt="")
+                            span=modeloInfo.ubicacion
+            .row.finalrow
+                .col-12.title-centered
+                    h2 Lideres
+                each lider in modeloInfo.lideres
+                    .col-6.cardLider
+                        span= lider.nombre
+                        span= lider.email
+                        span= lider.phone
+
+                
+
+        script(src="/js/bootstrap.min.js")
+        script(src="/js/axios.min.js")
+        script(src="/js/sweetalert.js")
+        script(src="/js/addModelos.js")

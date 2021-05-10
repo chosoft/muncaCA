@@ -1,0 +1,365 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Oxygen", sans-serif;
+  background: #f2f2f2;
+}
+
+nav {
+  padding: 0 20px;
+  background: #FED83F;
+}
+nav a {
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  color: #f1f1f1;
+}
+nav .colorLink {
+  color: #fff;
+}
+nav .colorLink:hover {
+  color: #f1f1f1;
+}
+nav .colorLink:active {
+  color: #fff;
+}
+
+.backgroundBlack {
+  background: #282C36;
+}
+.backgroundBlack li a {
+  color: #fff;
+}
+.backgroundBlack li a:hover {
+  color: #fff;
+  background: #282C36;
+}
+
+.wp-tl {
+  padding: 25px;
+}
+.wp-tl h1 {
+  font-family: "Oxygen", sans-serif;
+  color: #191919;
+  font-size: 55px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cardModelo {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+}
+.cardModelo .wp-title {
+  width: 100%;
+}
+.cardModelo .wp-title h3 {
+  text-align: center;
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+}
+.cardModelo .wp-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0;
+}
+.cardModelo .wp-img img {
+  width: 350px;
+}
+.cardModelo .wp-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.cardModelo .wp-buttons button {
+  width: 45%;
+  border: 0;
+  padding: 10px;
+  font-weight: bold;
+  font-family: "Oxygen", sans-serif;
+  text-decoration: none;
+}
+.cardModelo .wp-buttons .visit {
+  background: #FED83F;
+  color: #fff;
+  width: 45%;
+  border: 0;
+  padding: 10px;
+  font-weight: bold;
+  font-family: "Oxygen", sans-serif;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+.cardModelo .wp-buttons .delete {
+  background: transparent;
+  color: #FE0034;
+}
+
+.actionGuide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  padding-top: 0;
+}
+.actionGuide p {
+  color: #191919;
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+.actionGuide a {
+  background: #FED83F;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Oxygen", sans-serif;
+  padding: 15px 25px;
+  border-radius: 12px;
+}
+
+.imgNull {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.imgNull img {
+  height: 500px;
+  width: auto;
+}
+
+.titleAdd {
+  padding: 25px 0;
+}
+.titleAdd h1 {
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+  color: #191919;
+  text-align: center;
+}
+
+.titleInfos {
+  padding: 25px 0;
+}
+.titleInfos h3 {
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+  text-align: left;
+  color: #191919;
+}
+
+.wp-formModelo {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wp-formModelo label {
+  width: 100%;
+  color: #191919;
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  margin: 15px 0 8px 0;
+}
+.wp-formModelo input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  outline: 0;
+  color: #191919;
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  transition: all 0.3s ease;
+}
+.wp-formModelo input:focus {
+  border: 2px solid #FED83F;
+}
+
+.finalWp {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+.finalWp .wp-addButton {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.finalWp .wp-addButton button {
+  background: #FED83F;
+  height: 45px;
+  width: 45px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 50%;
+}
+.finalWp .wp-addButton button img {
+  width: 25px;
+}
+.finalWp .wp-cardContainer {
+  margin-bottom: 20px;
+  background: #fff;
+  min-height: 200px;
+  width: 100%;
+  max-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+}
+.finalWp .wp-cardContainer .liderCard {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #282C36;
+  margin-bottom: 10px;
+}
+.finalWp .wp-cardContainer .liderCard div {
+  padding: 25px 0;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.finalWp .wp-cardContainer .liderCard div span {
+  color: #fff;
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+.finalWp .wp-cardContainer .liderCard button {
+  width: 10%;
+  border: 0;
+  background: #FE0034;
+  font-size: 25px;
+  font-family: "Oxygen", sans-serif;
+  color: #fff;
+  font-weight: bold;
+}
+.finalWp .wp-sender {
+  width: 100%;
+  margin-bottom: 80px;
+}
+.finalWp .wp-sender button {
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+  font-family: "Oxygen", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  border: 0;
+  background: #FED83F;
+  border-radius: 12px;
+}
+
+.centerTitle {
+  background: url("./../img/mediaImg/bg-min.png") center center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 150px;
+}
+.centerTitle h1 {
+  color: #fff;
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+  font-size: 55px;
+  text-align: center;
+}
+
+.wp-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 25px;
+}
+.wp-logo img {
+  width: 350px;
+}
+
+.wp-miniCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px 5px;
+  background: #fff;
+}
+.wp-miniCard img {
+  height: 35px;
+  margin-right: 10px;
+}
+.wp-miniCard span {
+  font-family: "Oxygen", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #191919;
+}
+
+.title-centered {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.title-centered h2 {
+  font-weight: bold;
+  font-family: "Oxygen", sans-serif;
+  color: #191919;
+  padding: 20px 0;
+}
+
+.cardLider {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.cardLider span {
+  width: 100%;
+  margin: 10px;
+  font-family: "Oxygen", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #191919;
+}
+
+.finalrow {
+  margin-bottom: 30px;
+}
+
+/*# sourceMappingURL=modelos.css.map */
