@@ -8,6 +8,11 @@ html(lang="es")
         link(rel="stylesheet", href="/css/simple-grid.min.css")
         link(rel="stylesheet", href="/css/loginAndRegister.css")
     body
+        section.container-fluid 
+            .row
+                .col-12.wp-credits
+                    span By
+                    img(src="/img/mediaImg/colamer.svg" width="50px")
         section.container
             .row
                 .col-12
@@ -24,8 +29,7 @@ html(lang="es")
                             input(type="password" id="password" placeholder="Contraseña")
                             button(id="submit" action="login") Ingresar
                             a(href="/registrarse") Registrarse 
-                        .wp-logo 
-                            img(src="/img/mediaImg/colamer.svg")    
+    
 
 
                             

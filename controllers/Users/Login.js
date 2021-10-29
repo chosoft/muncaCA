@@ -4,7 +4,7 @@ function controllerLogin(obj){
     return new Promise(async (resolve, reject) => {
         try {
             if(Object.keys(obj).length <= 0){
-                reject('dataNull')
+                reject({msg:'dataNull',programatedError:true})
             }else{
                 const modelResponse = await loginUser(obj)
                 resolve(modelResponse)

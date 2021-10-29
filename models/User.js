@@ -80,19 +80,20 @@ function saveUser(obj){
 function loginUser({email,password}){
     return new Promise(async(resolve, reject) => {
         try {
-            const userData = await Usuario.findOne({email})            
+            const userData = await Usuario.findOne({email})
             if(userData === null){
-                reject('errorLogin')
+                reject({msg:'errorLogin',programatedError:true})
             }else{
                 const passwordVerification = await bcrypt.compare(password, userData.password)
                 if(passwordVerification){
                     const idToken = userData._id
+                    console.log(passwordVerification)
                     resolve(idToken)
                 }else{
-                    reject('errorLogin')
+                    reject({msg:'errorLogin',programatedError:true})
                 }
             }
-        } catch (e) {
+        } catch (e) { 
             reject(e)
         }
     })
@@ -132,8 +133,14 @@ function updateImg({img,id}){
 function updateUsername({username,id}){
     return new Promise(async (resolve, reject) => {
         try {
-            const updateResult = await Usuario.findOneAndUpdate({_id:id},{username})
-            resolve('ok')
+            const uniqueName = await Usuario.find({username})
+            if(uniqueName === null || uniqueName.length <= 0|| uniqueName === ''){
+                const updateResult = await Usuario.findOneAndUpdate({_id:id},{username})
+                resolve('ok')
+            }else{
+                
+                reject('usernameUse')
+            }
         } catch (e) {
             reject(e)
         }
@@ -148,6 +155,7 @@ function updatePassword({password,id}){
                     reject(err)
                 }else{
                     const updateResult = await Usuario.findOneAndUpdate({_id:id},{password:hash})
+                    console.log('waiterFinal')
                     resolve('ok')
                 }
             } catch (e) {

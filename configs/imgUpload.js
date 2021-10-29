@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
         const extension = file.originalname.substring(file.originalname.lastIndexOf('.'))
         const realName = file.originalname.substring(0,file.originalname.lastIndexOf('.'))
         const id = uniqid()
-        cb(null, `${id}%${realName}%${Date.now()}${extension}`)
+        cb(null, `${id}@${realName}@${Date.now()}${extension}`)
     },
     size: 20971520
 })

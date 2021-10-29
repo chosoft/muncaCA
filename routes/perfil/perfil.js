@@ -12,7 +12,7 @@ const imgChange = multerConf.single('img')
 
 router.get('/', auth, async (req, res) => {
     try {
-        res.send('auth')
+        res.render('perfil',{renderInfo:req.renderData})
     } catch (e) {
         res.send(e)
     }

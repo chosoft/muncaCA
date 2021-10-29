@@ -11,6 +11,118 @@ body {
   background: #f2f2f2;
 }
 
+.imgProfile {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+}
+.imgProfile img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  padding: 10px;
+  background: #FED83F;
+}
+
+.wp-actions {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.wp-actions div {
+  width: 50%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wp-actions div label {
+  width: 100%;
+  font-size: 20px;
+  font-family: "Oxygen", sans-serif;
+  color: #191919;
+  font-weight: bold;
+}
+.wp-actions div input {
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 20px;
+  font-family: "Oxygen", sans-serif;
+  color: #191919;
+  font-weight: bold;
+  margin: 10px 0 20px 0;
+}
+.wp-actions div button {
+  width: 100%;
+  border: 0;
+  background: #FED83F;
+  padding: 15px;
+  color: #fff;
+  border-radius: 12px;
+  font-size: 20px;
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+}
+
+.userWp {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  padding: 25px 0;
+}
+.userWp h3 {
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.centerProfile {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  padding: 25px 0;
+}
+.centerProfile h1 {
+  font-family: "Oxygen", sans-serif;
+  font-weight: bold;
+  color: #191919;
+  text-align: center;
+  font-size: 55px;
+}
+
+#addAlert {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #FED83F;
+  border: 0;
+  border-radius: 50%;
+  padding: 10px;
+  height: 55px;
+  width: 55px;
+  bottom: 100px;
+  right: 100px;
+}
+#addAlert img {
+  height: 25px;
+  width: 25px;
+}
+
 nav {
   padding: 0 20px;
   background: #FED83F;

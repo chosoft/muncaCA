@@ -1,8 +1,10 @@
 'use strict'
+
 const buttonSubmit = document.getElementById('submit')
 
 buttonSubmit.onclick = async(e) => {
     try {
+        e.target.disabled = true
         const action = e.currentTarget.attributes[1].value
         const verification = action ? true : false
         const validActions = ['login','register']
@@ -13,6 +15,7 @@ buttonSubmit.onclick = async(e) => {
                 e.currentTarget.innerText = 'Espera...'              
                 const { data } = await axios.post(`/?mode=${action}`,{email,password})
                 e.target.innerText = 'Ingresar'
+                e.target.disabled = false
                 if(data === 'ok'){
                     Swal.fire({
                         title: 'Bien hecho!',

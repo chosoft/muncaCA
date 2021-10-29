@@ -22,10 +22,10 @@ router.post('/', auth, docsMiddleware, async(req,res) => {
     try {
         const files = req.files
         const uploadVerification = files ? true : false
-        const lengthVerification = (files.length <= 0) ? true : false
         const id = req.session.token
         const controllerObj = {files,creator: id}
-        if(uploadVerification){
+        if(uploadVerification && req.files.length >0){
+            const lengthVerification = files.length <= 0 ? true : false
             if(lengthVerification){
                 res.send('docsNull')
             }else{
@@ -37,14 +37,17 @@ router.post('/', auth, docsMiddleware, async(req,res) => {
         }
         
     } catch (e) {
+        console.error(e)
         res.send(e)
     }
 })
 
-router.delete('/', auth, docsMiddleware, async(req, res) =>{
+router.delete('/', auth, async(req, res) =>{
     try {
         const { deleteKey } = req.body
+        console.log(typeof deleteKey)
         const keyVerification = deleteKey ? true : false
+        console.log(keyVerification)
         if(keyVerification){
             const controllerResponse = await deleteController(deleteKey)
             res.send(controllerResponse)

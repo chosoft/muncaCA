@@ -30,7 +30,6 @@ function createDocsArray(docsInfo,id){
                 try {
                     const originalname = await extractName(doc.filename)
                     const icon = await iconOfFiletype(doc.filename)
-                    console.log(icon)
                     const path = `/docs/${doc.filename}`
 
                     obj = {
@@ -73,7 +72,6 @@ function iconOfFiletype(filename){
             const extension = filename.substring(filename.lastIndexOf('.')+1)
             extensions.forEach((ext,index) => {
                 if(ext.includes(extension)){
-                    console.log(ext.includes(extension))
                     resolve(index)
                 }else{
                     if(index+1 === extensions.length){

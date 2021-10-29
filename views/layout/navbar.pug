@@ -1,11 +1,11 @@
 nav.navbar.navbar-expand-lg
   .container-fluid
-    a.navbar-brand(href='/configuracion') Munca
+    a.navbar-brand(href='/perfil') Munca
     button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarScroll' aria-controls='navbarScroll' aria-expanded='false' aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarScroll.collapse.navbar-collapse
       ul.navbar-nav.me-auto.my-2.my-lg-0.navbar-nav-scroll(style='--bs-scroll-height: 100px;')
-        li.nav-item
+        //li.nav-item
           a.nav-link.active.colorLink(aria-current='page' href='/correos') Correos
         li.nav-item
           a.nav-link.colorLink(href='/documentos') Documentos
@@ -17,3 +17,6 @@ nav.navbar.navbar-expand-lg
               a.dropdown-item(href='/add') Añadir
             li
               a.dropdown-item(href='/modelos') Ver modelos
+
+        li.nav-item
+          a.nav-link.colorLink(href='/exit') Salir

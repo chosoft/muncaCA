@@ -6,10 +6,12 @@ html(lang="es")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Documentos | Munca
         link(rel="stylesheet", href="/css/bootstrap.min.css")        
-        link(rel="stylesheet", href="/css/documentos.css")
+        link(rel="stylesheet", href="/css/modelos.css")
     body
         include layout/navbar.pug
 
+        button#addAlert() 
+            img(src="/img/mediaImg/mas.svg", alt="")
         .container
             .row
                 if isNull
@@ -18,22 +20,23 @@ html(lang="es")
                     .col-12.actionGuide
                         p Parece que todavia no tienes modelos Documentos agregados, agrega uno dando click al mas1
                     .col-12.imgNull
-                        img(src="/img/mediaImg/empty.svg", alt="")
+                        img(src="/img/mediaImg/emptyDocs.svg", alt="")
                 else
                     .col-12.wp-tl
-                        h1 Modelos
-                    each modelo in modelos
+                        h1 Documentos
+                    each documento in documentos
                         .col-4
                             .cardModelo
                                 .wp-title
-                                    h3=modelo.modelo
+                                    h3=documento.originalname
                                 .wp-img
-                                    img(src=`${modelo.logo}`, alt="")
+                                    img(src=`/img/docsIcons/${documento.icon}.svg`, alt="")
                                 .wp-buttons
-                                    a.visit(href=`/filter/${modelo.modelo}`) Ver
-                                    button.delete(key=modelo._id) Eliminar
+                                    a.visit(href=`${documento.path}` download) Descargar
+                                    button.delete(key=documento._id) Eliminar
 
         script(src="/js/bootstrap.min.js")
         script(src="/js/axios.min.js")
         script(src="/js/sweetalert.js")
-        script(src="/js/modelos.js")
+        script(src="/js/documentos.js")
+        

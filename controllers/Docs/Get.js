@@ -9,3 +9,5 @@ function GetController(){
         }
     })
 }
+
+module.exports = GetController

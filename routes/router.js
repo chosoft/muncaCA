@@ -7,6 +7,7 @@ const documentosRouter = require('./docs/docs')
 const perfilRouter = require('./perfil/perfil')
 const mailRouter = require('./mails/mails')
 const notFound = require('./handlers/404')
+const exit = require('./handlers/exit')
 const router = (server) => {
     server.use('/',indexRouter)
     server.use('/registrarse',registrarseRouter)
@@ -16,6 +17,7 @@ const router = (server) => {
     server.use('/filter',modeloFilter)
     server.use('/perfil',perfilRouter)
     server.use('/mail',mailRouter)
+    server.use('/exit',exit)
     server.use(notFound)
 }
 

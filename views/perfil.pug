@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Modelos | Munca
+        link(rel="stylesheet", href="/css/bootstrap.min.css")        
+        link(rel="stylesheet", href="/css/modelos.css")
+        link(rel="stylesheet", href="/css/balloon.css")
+    body 
+        include layout/navbar.pug
+
+        .container
+            .row
+                .col-12.centerProfile
+                    h1 Tu perfil
+                .col-12-.imgProfile
+                    img(src=renderInfo.img, alt="" id="imgClick" aria-label="Click para cambiar imagen" data-balloon-pos="right")
+                .col-12.userWp
+                    h3= renderInfo.username
+                
+            .row
+                .col-12.wp-actions
+                    .wp-changeUsername
+                        label(for="username") Cambiar nombre de usuario
+                        input#username(type="text" placeholder="Nombre de usuario")
+                        button#btnUsername() Cambiar
+                    .wp-changePassword()
+                        label(for="password") Cambiar contraseña
+                        input#password(type="password" placeholder="Nueva contraseña" )
+                        button#btnPassword(aria-label="Debe contener letras numeros y minimo 8 caracteres" data-balloon-pos="right") Cambiar
+    
+
+        script(src="/js/bootstrap.min.js")
+        script(src="/js/axios.min.js")
+        script(src="/js/sweetalert.js")
+        script(src="/js/perfil.js")
